@@ -32,6 +32,10 @@ function TodoList() {
         setTodos([...todos, newTodo]);
     };
 
+    const delTodo = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
+    };
+
     return (
         <>
             <AddTodo addTodo={addTodo} />
@@ -40,7 +44,8 @@ function TodoList() {
                     <TodoItem
                         key={todo.id}
                         todo={todo.title}
-                        id1={todo.id}
+                        todoId={todo.id}
+                        delTodo={delTodo}
                     />
                 ))}
             </ul>
