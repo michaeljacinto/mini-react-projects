@@ -38,17 +38,19 @@ function TodoList() {
 
     return (
         <>
-            <AddTodo addTodo={addTodo} />
-            <ul>
-                {todos.map((todo) => (
-                    <TodoItem
-                        key={todo.id}
-                        todo={todo.title}
-                        todoId={todo.id}
-                        delTodo={delTodo}
-                    />
-                ))}
-            </ul>
+            <div className="flex place-items-center flex-col bg-gray-200 rounded shadow-lg">
+                <AddTodo addTodo={addTodo} />
+                <ul>
+                    {todos.map((todo) => (
+                        <TodoItem
+                            key={todo.id}
+                            todo={todo.title}
+                            todoId={todo.id}
+                            delTodo={delTodo}
+                        />
+                    ))}
+                </ul>
+            </div>
         </>
     )
 }

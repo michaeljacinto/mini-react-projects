@@ -3,8 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <TodoList></TodoList>
-
+    <div id="app" className="flex flex-col container max-w-md mx-auto md:pt-8">
+      <TodoList></TodoList>
+    </div>
   );
 }
 
