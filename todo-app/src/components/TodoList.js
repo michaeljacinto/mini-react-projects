@@ -9,7 +9,7 @@ function TodoList() {
         {
             id: "1",
             title: "Feed the cat",
-            completed: true,
+            completed: false,
         },
         {
             id: "2",
@@ -36,6 +36,23 @@ function TodoList() {
         setTodos(todos.filter((todo) => todo.id !== id));
     };
 
+    // const markComplete = (id) => {
+    //     setTodos(
+    //         todos.map((todo) =>
+    //             todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    //         )
+    //     );
+    // };
+
+    // Toggle completed state of todo item
+    const markComplete = (id) => {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            )
+        );
+    };
+
     return (
         <>
             <div className="flex place-items-center flex-col bg-gray-200 rounded shadow-lg">
@@ -45,8 +62,10 @@ function TodoList() {
                         <TodoItem
                             key={todo.id}
                             todo={todo.title}
+                            todoObj={todo}
                             todoId={todo.id}
                             delTodo={delTodo}
+                            markComplete={markComplete}
                         />
                     ))}
                 </ul>
