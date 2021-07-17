@@ -2,6 +2,8 @@ import { useState } from 'react';
 import AddTodo from './AddTodo'
 import { v4 as uuidv4 } from "uuid";
 import TodoItem from './TodoItem';
+import TodosHeader from './TodoHeader';
+import TodosFooter from './TodoFooter';
 
 function TodoList() {
 
@@ -36,14 +38,6 @@ function TodoList() {
         setTodos(todos.filter((todo) => todo.id !== id));
     };
 
-    // const markComplete = (id) => {
-    //     setTodos(
-    //         todos.map((todo) =>
-    //             todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    //         )
-    //     );
-    // };
-
     // Toggle completed state of todo item
     const markComplete = (id) => {
         setTodos(
@@ -56,6 +50,7 @@ function TodoList() {
     return (
         <>
             <div className="flex place-items-center flex-col bg-gray-200 rounded shadow-lg">
+                <TodosHeader />
                 <AddTodo addTodo={addTodo} />
                 <ul>
                     {todos.map((todo) => (
@@ -69,6 +64,10 @@ function TodoList() {
                         />
                     ))}
                 </ul>
+                {/* <TodosFooter
+                    totalTasks={todos.length}
+                    doneTasks={todos.filter((todo) => todo.completed).length}
+                /> */}
             </div>
         </>
     )
